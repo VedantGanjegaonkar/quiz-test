@@ -1,0 +1,59 @@
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="container mt-5">
+    <div class="mb-3">
+      <label for="firstName" class="form-label">First Name</label>
+      <input type="text" id="firstName" formControlName="firstName" class="form-control">
+      <div *ngIf="registrationForm.get('firstName')?.invalid && registrationForm.get('firstName')?.touched" class="text-danger">
+        First Name is required
+      </div>
+    </div>
+  
+    <div class="mb-3">
+      <label for="lastName" class="form-label">Last Name</label>
+      <input type="text" id="lastName" formControlName="lastName" class="form-control">
+      <div *ngIf="registrationForm.get('lastName')?.invalid && registrationForm.get('lastName')?.touched" class="text-danger">
+        Last Name is required
+      </div>
+    </div>
+  
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" id="email" formControlName="email" class="form-control">
+      <div *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched" class="text-danger">
+        Please enter a valid email
+      </div>
+    </div>
+  
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" id="password" formControlName="password" class="form-control">
+      <div *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched" class="text-danger">
+        Password must be at least 6 characters long
+      </div>
+    </div>
+  
+    <div class="mb-3">
+      <label for="confirmPassword" class="form-label">Confirm Password</label>
+      <input type="password" id="confirmPassword" formControlName="confirmPassword" class="form-control">
+      <div *ngIf="registrationForm.get('confirmPassword')?.invalid && registrationForm.get('confirmPassword')?.touched" class="text-danger">
+        Passwords do not match
+      </div>
+    </div>
+  
+    <div class="mb-3">
+      <label for="role" class="form-label">Role</label>
+      <select id="role" formControlName="role" class="form-select">
+        <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+      </select>
+    </div>
+  
+    <div class="mb-3 form-check">
+      <input type="checkbox" id="acceptTerms" formControlName="acceptTerms" class="form-check-input">
+      <label for="acceptTerms" class="form-check-label">I accept the terms and conditions</label>
+      <div *ngIf="registrationForm.get('acceptTerms')?.invalid && registrationForm.get('acceptTerms')?.touched" class="text-danger">
+        Please accept the terms and conditions
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="registrationForm.invalid" class="btn btn-primary">Register</button>
+  </form>
+  
