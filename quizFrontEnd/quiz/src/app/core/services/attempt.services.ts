@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AttemptService {
-  private apiUrl = 'http://localhost:3000'; // Adjust this URL as needed
+  private apiUrl = 'http://localhost:3000'; 
 
   constructor(private http: HttpClient) { }
 
@@ -23,11 +23,9 @@ export class AttemptService {
     return this.http.post(`${this.apiUrl}/quiz/createD`, { userId });
   }
 
-  // getQuizFromId(QuizId:string): Observable<any> {
-  //   return this.http.get(`${this.apiUrl}/quiz/getNewQuiz`, { QuizId });
-  // }
-  // getQuizFromIds(quizId: string): Observable<any> {
-  //   return this.http.get(`${this.apiUrl}/quiz/getNew`, { quizId });
-  // }
+  getQuizFromId(QuizId:string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/quiz/${QuizId}`); 
+  }
+
 
 }

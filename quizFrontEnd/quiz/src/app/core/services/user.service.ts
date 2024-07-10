@@ -66,14 +66,6 @@ export class UserService {
   }
 
 
-  updateUser(userId: number, user: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/users/`, user);
-  }
-
-  deleteUser(userId: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/users/${userId}`);
-  }
 }
 
 
-// put(`${this.apiUrl}/users/${userId}`, user);

@@ -7,23 +7,22 @@ import { PageRoutingModule } from './page-routing.module';
 import { FormsModule } from '@angular/forms'; // Import FormsModule
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { QuizComponent } from './quiz/quiz.component';
-import { QuizDisplayComponent } from './quiz/quiz-display/quiz-display.component';
-import { QuizAttemptComponent } from './quiz/quiz-display/quiz-attempt/quiz-attempt.component';
+
 import { HomeComponent } from './home/home.component';
-import { NewquizComponent } from './home/newquiz/newquiz.component';
+import { QuizQueenComponent } from './home/quiz-queen/quiz-queen.component';
+import { NewquizComponent } from './home/quiz-queen/newquiz/newquiz.component';
+import { QuizDisplayComponent } from './home/quiz-queen/quiz-display/quiz-display.component';
+import { QuizAttemptComponent } from './home/quiz-queen/quiz-attempt/quiz-attempt.component';
+
 
 
 @NgModule({
   declarations: [
-
-
-  
-    QuizComponent,
-         QuizDisplayComponent,
-         QuizAttemptComponent,
          HomeComponent,
-         NewquizComponent
+         QuizQueenComponent,
+         NewquizComponent,
+         QuizDisplayComponent,
+         QuizAttemptComponent,       
   ],
   imports: [
     CommonModule,

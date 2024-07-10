@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { QuizComponent } from './quiz/quiz.component';
+import { QuizAttemptComponent } from './home/quiz-queen/quiz-attempt/quiz-attempt.component';
 import { HomeComponent } from './home/home.component';
+import { QuizDisplayComponent } from './home/quiz-queen/quiz-display/quiz-display.component';
 import { AuthGuard } from '../core/authGuards/auth.gaurd';
-import { NewquizComponent } from './home/newquiz/newquiz.component';
-import { QuizAttemptComponent } from './quiz/quiz-display/quiz-attempt/quiz-attempt.component';
+import { QuizQueenComponent } from './home/quiz-queen/quiz-queen.component';
 const routes: Routes = [
-{path:'quiz', component:QuizComponent ,canActivate: [AuthGuard]},
+
 {path:'home', component:HomeComponent,canActivate: [AuthGuard] },
-{ path: 'new-quiz', component: NewquizComponent },
-{path: 'quiz-display' , component : QuizAttemptComponent}
+{path:'quizQueen', component:QuizQueenComponent },
+{ path: 'quiz-display/:id', component: QuizDisplayComponent },
+{ path: 'quiz-attempt', component:QuizAttemptComponent },
 ];
 
 @NgModule({

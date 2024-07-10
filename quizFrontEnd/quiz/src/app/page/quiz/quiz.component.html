@@ -1,9 +1,0 @@
-<!-- app.component.html -->
-<app-quiz-display *ngIf="!quizStarted" (quizStart)="onQuizStart($event)"></app-quiz-display>
-
-<app-newquiz *ngIf="!quizStarted" (newQuizGenerated)="onNewQuizGenerated($event)"></app-newquiz>
-
-<app-quiz-attempt *ngIf="quizStarted"
-                  [quiz]="currentQuiz"
-                  (newQuizGenerated)="onNewQuizGenerated($event)">
-</app-quiz-attempt>

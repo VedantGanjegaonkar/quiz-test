@@ -1,0 +1,16 @@
+    <div *ngIf="!quizStarted">
+        <div *ngIf="quiz">
+            <h2>{{ quiz.title }}</h2>
+            <p>{{ quiz.description }}</p>
+            <p>Number of questions: {{ quiz.questions.length }}</p>
+            <button (click)="startQuiz()">Start Quiz</button>
+        </div>
+
+    </div>
+   
+
+<app-quiz-attempt *ngIf="quizStarted"
+                  [quiz]="quiz"
+                  >
+</app-quiz-attempt>
+  

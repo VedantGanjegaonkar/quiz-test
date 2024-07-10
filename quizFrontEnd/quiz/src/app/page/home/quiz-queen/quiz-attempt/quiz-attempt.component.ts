@@ -10,7 +10,7 @@ import { UserService } from 'src/app/core/services/user.service';
 })
 export class QuizAttemptComponent implements OnInit {
   @Input() quiz: any;
-  @Output() newQuizGenerated = new EventEmitter<string>();
+  
   currentQuestionIndex = 0;
   userAnswers: string[] = [];
   quizCompleted = false;
@@ -24,7 +24,7 @@ export class QuizAttemptComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log(this.quiz);
+    // console.log(this.quiz);
     this.userAnswers = new Array(this.quiz.questions.length).fill('');
     this.userId = this.userService.getUserIdFromToken();
     this.initializeAttempt();
@@ -87,19 +87,4 @@ export class QuizAttemptComponent implements OnInit {
     this.quizCompleted = true;
 }
 
-generateNewQuiz() {
-  this.attemptService.generateNewQuiz(this.userId).subscribe(
-    (response) => {
-      console.log('New quiz generated:', response);
-      const newQuizId = response._id;
-      this.newQuizGenerated.emit(newQuizId);
-      console.log(newQuizId);
-      this.router.navigate(['/home']);
-
-    },
-    (error) => {
-      console.error('Error generating new quiz:', error);
-    }
-  );
-}
 }

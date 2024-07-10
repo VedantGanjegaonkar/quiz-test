@@ -11,11 +11,10 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./newquiz.component.css']
 })
 export class NewquizComponent {
-  @Output() newQuizGenerated = new EventEmitter<string>();
+  
   isGenerating = false;
   error: string | null = null;
   userId:string=""
-  currentQuiz!:any;
 
   constructor(
     private quizService: AttemptService,
@@ -37,9 +36,9 @@ export class NewquizComponent {
     this.quizService.generateNewQuiz(this.userId).subscribe(
       (newQuizId: any) => {
         this.isGenerating = false;
-        this.newQuizGenerated.emit(newQuizId._id);
-        console.log("new quiz succes:",newQuizId);
         
+        console.log("new quiz succes:",newQuizId);
+        this.router.navigate(['/quiz-display',newQuizId._id])
       },
       (error) => {
         this.isGenerating = false;
@@ -49,18 +48,5 @@ export class NewquizComponent {
     );
   }
 
-  fetchQuiz(quizId: string) {
-    this.http.get(`http://localhost:3000/quiz/${quizId}`).subscribe(
-      (data) => {
-        this.currentQuiz = data;
-        console.log("new full quiz:",data);
-        
-        // this.quizStarted = true;
-      },
-      (error) => {
-        console.error('Error fetching new quiz:', error);
-      }
-    );
-  }
 
 }
