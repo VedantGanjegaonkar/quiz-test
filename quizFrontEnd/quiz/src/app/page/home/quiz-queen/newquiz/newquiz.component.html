@@ -1,10 +1,10 @@
 <!-- new-quiz.component.html -->
 
-<div class="new-quiz-container">
-    <h2>Generate a New Quiz</h2>
-    <button (click)="generateNewQuiz()" [disabled]="isGenerating">
+<div class="new-quiz-container container d-flex justify-content-end">
+    
+    <button class="btn btn-success" (click)="generateNewQuiz()" [disabled]="isGenerating">
       {{ isGenerating ? 'Generating...' : 'Generate New Quiz' }}
     </button>
     <p *ngIf="error" class="error-message">{{ error }}</p>
-  </div>
+</div>
 

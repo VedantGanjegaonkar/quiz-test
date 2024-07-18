@@ -1,0 +1,35 @@
+<div class="container mt-4">
+    <h2 class="mb-4">Attempt Details</h2>
+    <div *ngIf="details.length > 0; else noDetails">
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Question</th>
+              <th>User Answer</th>
+              <th>Correct Answer</th>
+              <th>Point</th>
+              <th>Explanation</th>
+              <th>Difficulty</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let detail of details; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ detail.questionText }}</td>
+              <td>{{ detail.userAnswer }}</td>
+              <td>{{ detail.correctAnswer }}</td>
+              <td>{{ detail.point }}</td>
+              <td>{{ detail.explaination }}</td>
+              <td>{{ detail.difficulty }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <ng-template #noDetails>
+      <p>No details found.</p>
+    </ng-template>
+  </div>
+  

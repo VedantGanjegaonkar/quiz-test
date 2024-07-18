@@ -7,6 +7,7 @@ import { router as userRouter } from './routes/user.routes';
 import QueRoutes from "./routes/question.routes"
 import QuizRoutes from "./routes/quiz.routes"
 import attemptRoutes from "./routes/attempts.routes"
+import resultRoutes from "./routes/result.routes"
 import cors from 'cors';
 import { adminOnly } from './middleware/auth.middleware';
 
@@ -24,7 +25,7 @@ app.use('/user',userRouter)
 app.use('/que',QueRoutes,adminOnly)
 app.use('/quiz',QuizRoutes)
 app.use('/attempt',attemptRoutes)
-
+app.use('/result',resultRoutes)
 
 app.get('/', (req, res) => {
   res.send('welcome to Quiz Game')

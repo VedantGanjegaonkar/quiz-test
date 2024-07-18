@@ -1,0 +1,32 @@
+<div class="container mt-4">
+    <h2 class="mb-4">Quiz Attempts</h2>
+    <div *ngIf="attempts.length > 0; else noAttempts">
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Quiz</th>
+              <th>Average Score</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let attempt of attempts; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ attempt.quiz }}</td>
+              <td>{{ attempt.avgScore }}</td>
+              <td>
+                <button class="btn btn-primary btn-sm" (click)="viewDetails(attempt.quiz)">View Details</button>
+                
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <ng-template #noAttempts>
+      <p>No attempts found.</p>
+    </ng-template>
+  </div>
+  

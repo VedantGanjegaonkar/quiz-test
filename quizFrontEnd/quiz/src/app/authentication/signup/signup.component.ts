@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { UserService } from 'src/app/core/services/user.service';
 
@@ -13,7 +14,7 @@ export class SignupComponent {
    registrationForm!: FormGroup;
   roles: string[] = ['admin', 'user'];
 
-  constructor(private formBuilder: FormBuilder,private dataService:UserService) { }
+  constructor(private formBuilder: FormBuilder,private dataService:UserService,private router:Router) { }
 
   ngOnInit(): void {
     this.registrationForm = this.formBuilder.group({
@@ -44,7 +45,8 @@ export class SignupComponent {
       this.dataService.register(this.registrationForm.value).subscribe(
         response => {
           console.log('User registered successfully!', response);
-          window.location.reload(); // Consider using more Angular-friendly ways to refresh the data.
+          this.router.navigate(['/login']);
+          // window.location.reload(); // Consider using more Angular-friendly ways to refresh the data.
         },
         error => {
           console.error('Error registering  user!', error);

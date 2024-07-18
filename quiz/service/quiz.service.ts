@@ -71,9 +71,13 @@ export class QuizService {
       (sum, question) => sum + question.difficulty,
       0
     );
-    const avgDifficulty =
+    let avgDifficulty =
       questions.length > 0 ? totalDifficulty / questions.length : 0;
-
+    if(avgDifficulty===0){
+      avgDifficulty=5
+    }
+    console.log("avg difficulty:",avgDifficulty);
+    
     return avgDifficulty;
   }
 
@@ -147,10 +151,10 @@ export class QuizService {
 
       
 let avgScore = await this.getLatestAvgScore(userId) 
-if(avgScore === 0){
-  avgScore = 1;
-}
-console.log("ang score"+avgScore);
+// if(avgScore === 0){
+//   avgScore = 1;
+// }
+console.log("avg score:"+avgScore);
 
 
 

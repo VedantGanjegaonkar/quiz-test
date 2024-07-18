@@ -8,11 +8,11 @@ import { AuthInterceptor } from './core/intercepter/auth.intercepter';
 import { UserService } from './core/services/user.service';
 import { PageModule } from './page/page.module';
 import { AdminModule } from './page/admin/admin.module';
-import { NavbarComponent } from './common/navbar/navbar/navbar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -21,11 +21,8 @@ import { NavbarComponent } from './common/navbar/navbar/navbar.component';
     AuthenticationModule,
     AdminModule,
     PageModule,
+  ],
 
-  ],
-  exports: [
-    NavbarComponent
-  ],
   providers: [UserService, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
