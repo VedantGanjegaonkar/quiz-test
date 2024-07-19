@@ -8,7 +8,7 @@ import { QuizQueenComponent } from './home/quiz-queen/quiz-queen.component';
 import { ResultListComponent } from './home/result-list/result-list.component';
 import { ResultDetailsComponent } from './home/result-list/result-details/result-details.component';
 
-ResultDetailsComponent
+
 const routes: Routes = [
 
 {path:'home', component:HomeComponent,canActivate: [AuthGuard] },

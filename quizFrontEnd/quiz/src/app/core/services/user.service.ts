@@ -10,16 +10,16 @@ import { UserDocument } from '../../../../../../quiz/model/user.model';
 })
 
 export class UserService {
-  private apiUrl = 'http://localhost:3000';
+ 
 
   constructor(private http: HttpClient) {}
 
   register(user:UserDocument):Observable<UserDocument>{
-    return this.http.post<UserDocument>(`${this.apiUrl}/user/signup`,user);
+    return this.http.post<UserDocument>(`/user/signup`,user);
   }
 
   login(credentials: { email: string; password: string }): Observable<any> {
-    return this.http.post(`${this.apiUrl}/user/login`, credentials);
+    return this.http.post(`user/login`, credentials);
   }
 
   isLoggedIn(): boolean {
@@ -59,6 +59,9 @@ export class UserService {
       console.error('Error decoding token', error);
       return "null";
     }
+  }
+  getToken(){
+    return localStorage.getItem('token');
   }
 
   logout(): void {

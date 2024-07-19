@@ -8,6 +8,8 @@ import { AuthInterceptor } from './core/intercepter/auth.intercepter';
 import { UserService } from './core/services/user.service';
 import { PageModule } from './page/page.module';
 import { AdminModule } from './page/admin/admin.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -21,9 +23,11 @@ import { AdminModule } from './page/admin/admin.module';
     AuthenticationModule,
     AdminModule,
     PageModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
 
-  providers: [UserService, {
+  providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true

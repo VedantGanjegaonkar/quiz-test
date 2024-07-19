@@ -35,7 +35,7 @@ export class QuizDisplayComponent implements OnInit {
   
   fetchFirstQuiz() {
     this.isLoading = true;
-    this.http.get('http://localhost:3000/quiz/getFirstQuiz').subscribe(
+    this.http.get('quiz/getFirstQuiz').subscribe(
       (data) => {
         this.quiz = data;
         this.isLoading = false;
@@ -50,7 +50,7 @@ export class QuizDisplayComponent implements OnInit {
 
   fetchQuiz(quizId: string) {
     this.isLoading = true;
-    this.http.get(`http://localhost:3000/quiz/${quizId}`).subscribe(
+    this.http.get(`quiz/${quizId}`).subscribe(
       (data) => {
         this.quiz = data;
         this.isLoading = false;

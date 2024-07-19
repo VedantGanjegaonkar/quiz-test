@@ -7,24 +7,23 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AttemptService {
-  private apiUrl = 'http://localhost:3000'; 
-
+  
   constructor(private http: HttpClient) { }
 
   initializeAttempt(quizId: string, userId: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/attempt/start`, { quizId, userId });
+    return this.http.post(`attempt/start`, { quizId, userId });
   }
 
   updateAttemptWithAnswer(attemptId: string, questionId: string, userAnswer: string, userId: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/attempt/answer`, { attemptId,questionId, userAnswer, userId });
+    return this.http.post(`attempt/answer`, { attemptId,questionId, userAnswer, userId });
   }
 
   generateNewQuiz(userId: string): Observable<any> {          //dynamic gen API
-    return this.http.post(`${this.apiUrl}/quiz/createD`, { userId });
+    return this.http.post(`quiz/createD`, { userId });
   }
 
   getQuizFromId(QuizId:string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/quiz/${QuizId}`); 
+    return this.http.get(`quiz/${QuizId}`); 
   }
 
 

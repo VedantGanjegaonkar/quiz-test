@@ -7,15 +7,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ResultService {
-  private apiUrl = 'http://localhost:3000'; 
-
+  
   constructor(private http: HttpClient) { }
 
   getAttepmts(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/result`);
+    return this.http.get(`result`);
   }
   getAttepmtDetail(attemptId: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/result/${attemptId}`);
+    return this.http.get(`result/${attemptId}`);
   }
 
 
